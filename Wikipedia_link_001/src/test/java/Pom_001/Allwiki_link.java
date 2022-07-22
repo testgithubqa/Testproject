@@ -1,5 +1,6 @@
 package Pom_001;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -27,12 +28,20 @@ public class Allwiki_link {
             List<WebElement> alllink=driver.findElements(By.tagName("a"));
             
             System.out.println("Total tags are"+alllink.size());
-            for(int i=0;i<alllink.size();i++)
+            int lsz= alllink.size();
+            
+          ArrayList<String>namesArrayList= new ArrayList<String>(lsz);
+           
+           for(int i=0;i<lsz;i++)
             {
+            	for(WebElement link:alllink) {
             	Thread.sleep(3000);
-            	System.out.println("All the Links are:"+alllink);
-            	//alllink.get(i).getAttribute("href");
+            
+           System.out.println("LINKS :"+link.getText()+"And ATTRIBUTEs :"+link.getAttribute("href"));
+            	}
             	
+           Thread.sleep(3000);
+            	//driver.close();
             	
             }
 	}
